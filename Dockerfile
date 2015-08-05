@@ -10,7 +10,7 @@ ENV TOMCAT_MAJOR_VERSION 7
 ENV TOMCAT_MINOR_VERSION 7.0.32
 ENV CATALINA_HOME /tomcat
 ENV SIWO_SSH_PASSWORD root
-ENV SIWO_SHH_USER root
+ENV SIWO_SSH_USER root
 ENV SIWO_IPADDRESS localhost
 ENV SIWO_PATH_TO_APP /home/tomcat
 ENV SIWO_APP_DIR siwo
@@ -47,7 +47,9 @@ RUN mkdir /home/tomcat/siwo
 RUN touch /home/tomcat/siwo/application##test.war
 RUN chmod -R 777 /home
 
-RUN  sshpass -p ${SIWO_SSH_PASSWORD} scp -o StrictHostKeyChecking=no ${SIWO_SHH_USER}@${SIWO_IPADDRESS}:${SIWO_PATH_TO_APP}/${SIWO_APP_DIR}/${SIWO_APP_NAME}##${SIWO_APP_VERSION}.war ${CATALINA_HOME}/webapps
+RUN sshpass -p 'root' root@localhost
+
+RUN  sshpass -p ${SIWO_SSH_PASSWORD} scp -o StrictHostKeyChecking=no ${SIWO_SSH_USER}@${SIWO_IPADDRESS}:${SIWO_PATH_TO_APP}/${SIWO_APP_DIR}/${SIWO_APP_NAME}##${SIWO_APP_VERSION}.war ${CATALINA_HOME}/webapps
 
 RUN rm -rf /home
 
