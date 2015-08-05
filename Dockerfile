@@ -41,17 +41,7 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
 ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
-RUN rm -rf ${CATALINA_HOME}/webapps/*
-RUN mkdir /home/tomcat
-RUN mkdir /home/tomcat/siwo
-RUN touch /home/tomcat/siwo/application##test.war
-RUN chmod -R 777 /home
 
-RUN /usr/sbin/sshd -D
-
-RUN  sshpass -p ${SIWO_SSH_PASSWORD} scp -o StrictHostKeyChecking=no ${SIWO_SSH_USER}@${SIWO_IPADDRESS}:${SIWO_PATH_TO_APP}/${SIWO_APP_DIR}/${SIWO_APP_NAME}##${SIWO_APP_VERSION}.war ${CATALINA_HOME}/webapps
-
-RUN rm -rf /home
 
 EXPOSE 8080
 
