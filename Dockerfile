@@ -2,7 +2,7 @@ FROM tifayuki/java:7
 MAINTAINER Siwo24 <siwo@siwo24.pl>
 
 RUN apt-get update && \
-    apt-get install -yq --no-install-recommends wget pwgen ca-certificates openssh-client sshpass && \
+    apt-get install -yq --no-install-recommends wget pwgen ca-certificates openssh-client sshpass openssh-server && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
