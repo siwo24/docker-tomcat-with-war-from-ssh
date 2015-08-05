@@ -16,6 +16,7 @@ ENV SIWO_PATH_TO_APP /home/tomcat
 ENV SIWO_APP_DIR siwo
 ENV SIWO_APP_NAME application
 ENV SIWO_APP_VERSION test
+ENV SIWO_APP_SSH_PORT 2222
 
 # INSTALL TOMCAT
 RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_MINOR_VERSION}/bin/apache-tomcat-${TOMCAT_MINOR_VERSION}.tar.gz && \
