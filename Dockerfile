@@ -1,4 +1,4 @@
-FROM rastasheep / ubuntu-sshd
+FROM rastasheep/ubuntu-sshd
 MAINTAINER Siwo24 <siwo@siwo24.pl>
 
 RUN apt-get update && \
