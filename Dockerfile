@@ -34,6 +34,8 @@ RUN mkdir /home/tomcat/siwo
 RUN touch /home/tomcat/siwo/application##test.war
 RUN chmod -R 777 /home
 
+EXPOSE 22
+
 RUN  sshpass -p ${SIWO_SSH_PASSWORD} scp -o StrictHostKeyChecking=no ${SIWO_SHH_USER}@${SIWO_IPADDRESS}:${SIWO_PATH_TO_APP}/${SIWO_APP_DIR}/${SIWO_APP_NAME}##${SIWO_APP_VERSION}.war ${CATALINA_HOME}/webapps
 
 RUN userdel tomcat
