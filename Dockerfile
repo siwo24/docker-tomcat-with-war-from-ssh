@@ -29,7 +29,6 @@ ADD run.sh /run.sh
 RUN chmod +x /*.sh
 RUN rm -rf ${CATALINA_HOME}/webapps/*
 RUN useradd tomcat -p tomcat
-RUN mkdir /home
 RUN mkdir /home/tomcat
 RUN mkdir /home/tomcat/siwo
 RUN touch /home/tomcat/siwo/application##test.war
